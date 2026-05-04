@@ -1,20 +1,36 @@
 <?php
-
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+/*
+|--------------------------------------------------------------------------
+| USER AUTH
+|--------------------------------------------------------------------------
+*/
+Route::get('/register', [AuthController::class, 'showRegister']);
+Route::post('/register', [AuthController::class, 'register']);
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::get('/login', [AuthController::class, 'showLogin']);
+Route::post('/login', [AuthController::class, 'login']);
 
-require __DIR__.'/auth.php';
+Route::post('/logout', [AuthController::class, 'logout']);
+
+/*
+|--------------------------------------------------------------------------
+| ADMIN AUTH
+|--------------------------------------------------------------------------
+*/
+Route::get('/admin/login', [AuthController::class, 'showAdminLogin']);
+Route::post('/admin/login', [AuthController::class, 'adminLogin']);
+
+/*
+|--------------------------------------------------------------------------
+| DASHBOARDS
+|--------------------------------------------------------------------------
+*/
+Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth');
+Route::get('/admin/dashboard', [AuthController::class, 'adminDashboard']);
