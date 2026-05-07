@@ -1,6 +1,7 @@
 <?php
-use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -11,14 +12,31 @@ Route::get('/', function () {
 | USER AUTH
 |--------------------------------------------------------------------------
 */
-Route::get('/register', [AuthController::class, 'showRegister']);
-Route::post('/register', [AuthController::class, 'register']);
+Route::controller(AuthController::class)->group(function () {
 
-Route::get('/login', [AuthController::class, 'showLogin']);
-Route::post('/login', [AuthController::class, 'login']);
+    Route::get('/register', 'showRegister');
+    Route::post('/register', 'register');
 
-Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/login', 'showLogin');
+    Route::post('/login', 'login');
 
+    Route::post('/logout', 'logout');
+
+    Route::get('/forgot-password', 'showForgot');
+    Route::post('/forgot-password', 'sendReset');
+
+    Route::get('/reset-password/{token}', 'showReset');
+    Route::post('/reset-password', 'resetPassword');
+
+    Route::get('/admin/login', 'showAdminLogin');
+    Route::post('/admin/login', 'adminLogin');
+
+    Route::get('/verify-otp', 'showOtp');
+    Route::post('/verify-otp','verifyOtp');
+
+    Route::post('/resend-otp','resendOtp');
+
+});
 /*
 |--------------------------------------------------------------------------
 | ADMIN AUTH
