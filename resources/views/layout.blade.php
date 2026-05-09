@@ -24,12 +24,12 @@
 
         @auth
 
-            <aside class="w-72 bg-sidebar text-white p-8 hidden lg:flex flex-col flex-shrink-0">
+            <aside class="sticky top-0 h-screen overflow-y-auto w-72 bg-sidebar text-white p-8 hidden lg:flex flex-col flex-shrink-0">
 
                 <!-- LOGO -->
 
                 <a href="/dashboard" class="text-3xl font-bold mb-12 flex items-center gap-3">
-                    <span class="w-9 h-9 rounded-xl bg-accent flex items-center justify-center text-base">🎓</span>
+                    <img src="/logo.png" alt="FundNest" class="w-9 h-9 object-contain">
                     FundNest
                 </a>
 
@@ -38,74 +38,74 @@
                 <nav class="space-y-1 flex-1">
 
                     <a href="/dashboard"
-                       class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-sm font-medium {{ request()->is('dashboard') ? 'bg-white/15' : '' }}">
-                        <span>🏠</span> Dashboard
+                       class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/10 transition text-sm font-medium {{ request()->is('dashboard') ? 'bg-white/15' : '' }}">
+                        Dashboard
                     </a>
 
                     @if(auth()->user()->isAdmin())
 
-                        <div class="pt-3 pb-1 px-4 text-xs text-white/40 uppercase tracking-widest font-semibold">Admin</div>
+                        <div class="pt-4 pb-2 px-4 text-xs text-white/40 uppercase tracking-widest font-semibold">Admin</div>
 
                         <a href="{{ route('admin.scholarships.index') }}"
-                           class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-sm font-medium {{ request()->is('admin/scholarships*') ? 'bg-white/15' : '' }}">
-                            <span>🎓</span> Scholarships
+                           class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/10 transition text-sm font-medium {{ request()->is('admin/scholarships*') ? 'bg-white/15' : '' }}">
+                            Scholarships
                         </a>
 
                         <a href="{{ route('admin.categories.index') }}"
-                           class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-sm font-medium {{ request()->is('admin/categories*') ? 'bg-white/15' : '' }}">
-                            <span>🏷️</span> Categories
+                           class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/10 transition text-sm font-medium {{ request()->is('admin/categories*') ? 'bg-white/15' : '' }}">
+                            Categories
                         </a>
 
                         <a href="{{ route('admin.applications.index') }}"
-                           class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-sm font-medium {{ request()->is('admin/applications*') ? 'bg-white/15' : '' }}">
-                            <span>📋</span> Applications
+                           class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/10 transition text-sm font-medium {{ request()->is('admin/applications*') ? 'bg-white/15' : '' }}">
+                            Applications
                         </a>
 
                         <a href="{{ route('admin.analytics.index') }}"
-                           class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-sm font-medium {{ request()->is('admin/analytics*') ? 'bg-white/15' : '' }}">
-                            <span>📊</span> Analytics
+                           class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/10 transition text-sm font-medium {{ request()->is('admin/analytics*') ? 'bg-white/15' : '' }}">
+                            Analytics
                         </a>
 
                         @if(auth()->user()->isSuperAdmin())
 
-                            <div class="pt-3 pb-1 px-4 text-xs text-white/40 uppercase tracking-widest font-semibold">Super Admin</div>
+                            <div class="pt-4 pb-2 px-4 text-xs text-white/40 uppercase tracking-widest font-semibold">Super Admin</div>
 
                             <a href="{{ route('super_admin.users.index') }}"
-                               class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-sm font-medium {{ request()->is('super-admin/*') ? 'bg-white/15' : '' }}">
-                                <span>👑</span> Manage Users
+                               class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/10 transition text-sm font-medium {{ request()->is('super-admin/*') ? 'bg-white/15' : '' }}">
+                                Manage Users
                             </a>
 
                         @endif
 
                     @else
 
-                        <div class="pt-3 pb-1 px-4 text-xs text-white/40 uppercase tracking-widest font-semibold">Scholarships</div>
+                        <div class="pt-4 pb-2 px-4 text-xs text-white/40 uppercase tracking-widest font-semibold">Scholarships</div>
 
                         <a href="{{ route('scholarships.index') }}"
-                           class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-sm font-medium {{ request()->is('scholarships') ? 'bg-white/15' : '' }}">
-                            <span>🔍</span> Browse
+                           class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/10 transition text-sm font-medium {{ request()->is('scholarships') ? 'bg-white/15' : '' }}">
+                            Browse
                         </a>
 
                         <a href="{{ route('saved.index') }}"
-                           class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-sm font-medium {{ request()->is('saved') ? 'bg-white/15' : '' }}">
-                            <span>🔖</span> Saved
+                           class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/10 transition text-sm font-medium {{ request()->is('saved') ? 'bg-white/15' : '' }}">
+                            Saved
                         </a>
 
                         <a href="{{ route('recommendations.index') }}"
-                           class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-sm font-medium {{ request()->is('recommendations') ? 'bg-white/15' : '' }}">
-                            <span>✨</span> For You
+                           class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/10 transition text-sm font-medium {{ request()->is('recommendations') ? 'bg-white/15' : '' }}">
+                            For You
                         </a>
 
-                        <div class="pt-3 pb-1 px-4 text-xs text-white/40 uppercase tracking-widest font-semibold">My Account</div>
+                        <div class="pt-4 pb-2 px-4 text-xs text-white/40 uppercase tracking-widest font-semibold">My Account</div>
 
                         <a href="{{ route('applications.index') }}"
-                           class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-sm font-medium {{ request()->is('my-applications') ? 'bg-white/15' : '' }}">
-                            <span>📂</span> My Applications
+                           class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/10 transition text-sm font-medium {{ request()->is('my-applications') ? 'bg-white/15' : '' }}">
+                            My Applications
                         </a>
 
                         <a href="{{ route('profile.show') }}"
-                           class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-sm font-medium {{ request()->is('profile*') ? 'bg-white/15' : '' }}">
-                            <span>👤</span> Profile
+                           class="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-white/10 transition text-sm font-medium {{ request()->is('profile*') ? 'bg-white/15' : '' }}">
+                            Profile
                         </a>
 
                     @endif
@@ -119,22 +119,21 @@
                     <!-- NOTIFICATION BELL -->
 
                     <a href="{{ route('notifications.index') }}"
-                       class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition text-sm font-medium mb-2 relative"
+                       class="flex items-center justify-between px-4 py-3 rounded-md hover:bg-white/10 transition text-sm font-medium mb-2 relative"
                        id="notif-bell-link">
-                        <span>🔔</span>
                         Notifications
                         <span id="notif-badge"
-                              class="ml-auto bg-danger text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">
+                              class="bg-danger text-white text-xs font-bold rounded-md px-2 py-0.5 hidden">
                         </span>
                     </a>
 
-                    <div class="bg-white/10 rounded-2xl p-4">
+                    <div class="bg-white/10 rounded-md p-4">
 
                         <div class="flex items-center gap-3">
 
                             <img src="{{ auth()->user()->photoUrl() }}"
                                  alt="{{ auth()->user()->name }}"
-                                 class="w-10 h-10 rounded-full object-cover">
+                                 class="w-10 h-10 rounded-sm object-cover">
 
                             <div class="flex-1 min-w-0">
                                 <h3 class="font-semibold text-sm truncate">{{ auth()->user()->name }}</h3>
@@ -143,9 +142,9 @@
 
                         </div>
 
-                        <form action="/logout" method="POST" class="mt-3">
+                        <form action="/logout" method="POST" class="mt-4">
                             @csrf
-                            <button class="w-full bg-danger/80 hover:bg-danger py-2 rounded-xl text-sm transition">
+                            <button class="w-full bg-white/10 hover:bg-danger py-2 rounded-md text-sm transition">
                                 Logout
                             </button>
                         </form>
@@ -160,21 +159,39 @@
 
         <!-- MAIN CONTENT -->
 
-        <main class="flex-1 p-6 lg:p-10 overflow-x-hidden min-w-0">
+        <main class="flex-1 flex flex-col min-w-0 min-h-screen">
 
-            @if(session('success'))
-                <div class="mb-6 bg-green-100 border border-green-300 text-green-700 px-5 py-4 rounded-2xl flex items-center gap-3">
-                    <span>✅</span> {{ session('success') }}
-                </div>
-            @endif
+            @guest
+                <!-- GUEST NAVBAR -->
+                <nav class="w-full px-6 md:px-10 lg:px-16 py-6 flex justify-between items-center bg-white border-b border-borderc shadow-sm">
+                    <a href="/" class="text-2xl font-bold flex items-center gap-2">
+                        <img src="/logo.png" alt="FundNest" class="w-8 h-8 object-contain">
+                        FundNest
+                    </a>
 
-            @if(session('error'))
-                <div class="mb-6 bg-red-100 border border-red-300 text-red-700 px-5 py-4 rounded-2xl flex items-center gap-3">
-                    <span>❌</span> {{ session('error') }}
-                </div>
-            @endif
+                    <div class="flex items-center gap-6 text-sm font-medium">
+                        <a href="/admin/login" class="text-muted hover:text-dark transition">Admin Login</a>
+                        <a href="/login" class="text-dark hover:text-primary transition">Student Login</a>
+                        <a href="/register" class="bg-primary hover:bg-dark text-white px-5 py-2 rounded-md transition shadow-dark">Register</a>
+                    </div>
+                </nav>
+            @endguest
 
-            @yield('content')
+            <div class="p-6 lg:p-10 flex-1">
+                @if(session('success'))
+                    <div class="mb-8 bg-white border-l-4 border-success shadow-dark px-6 py-4 rounded-md flex items-center gap-3 text-dark font-medium">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if(session('error'))
+                    <div class="mb-8 bg-white border-l-4 border-danger shadow-dark px-6 py-4 rounded-md flex items-center gap-3 text-dark font-medium">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+                @yield('content')
+            </div>
 
         </main>
 

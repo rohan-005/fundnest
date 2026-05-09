@@ -17,20 +17,21 @@ body {
 */
 
 .card {
-    @apply bg-card rounded-3xl shadow-soft border border-borderc;
+    @apply bg-card rounded-md shadow-dark border border-borderc;
 }
 
 .input {
-    @apply w-full border border-borderc rounded-2xl p-4
+    @apply w-full border border-borderc rounded-md p-4
     focus:ring-2 focus:ring-primary
-    focus:outline-none;
+    focus:outline-none shadow-sm;
 }
 
 .btn-primary {
     @apply bg-primary hover:bg-dark
     text-white
     px-6 py-3
-    rounded-2xl
+    rounded-md
+    shadow-dark
     transition;
 }
 
@@ -38,7 +39,8 @@ body {
     @apply bg-danger hover:bg-red-700
     text-white
     px-5 py-2
-    rounded-xl
+    rounded-md
+    shadow-dark
     transition;
 }
 

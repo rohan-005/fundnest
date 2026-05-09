@@ -42,24 +42,24 @@
     <!-- RIGHT SECTION -->
     <div class="flex justify-center items-center px-6 py-10">
 
-        <div class="w-full max-w-md bg-white/70 backdrop-blur-xl border border-white/40 shadow-2xl rounded-3xl p-8">
+        <div class="w-full max-w-md bg-white border border-borderc shadow-dark rounded-md p-8 relative z-10">
 
             <div class="text-center mb-8">
-                <h2 class="text-3xl font-bold">Create Account</h2>
+                <h2 class="text-3xl font-bold text-dark">Create Account</h2>
 
-                <p class="text-gray-500 mt-2 text-sm">
+                <p class="text-gray-500 mt-2 text-sm font-medium">
                     Verify your email with OTP to continue
                 </p>
             </div>
 
             @if(session('success'))
-                <div class="bg-green-100 text-green-700 px-4 py-3 rounded-lg mb-4 text-sm">
+                <div class="bg-white border-l-4 border-success shadow-dark text-dark px-4 py-3 rounded-md mb-4 text-sm font-medium">
                     {{ session('success') }}
                 </div>
             @endif
 
             @if($errors->any())
-                <div class="bg-red-100 text-red-600 px-4 py-3 rounded-lg mb-4 text-sm">
+                <div class="bg-white border-l-4 border-danger shadow-dark text-dark px-4 py-3 rounded-md mb-4 text-sm font-medium">
                     @foreach($errors->all() as $error)
                         <p>{{ $error }}</p>
                     @endforeach
@@ -73,31 +73,31 @@
                        name="name"
                        placeholder="Full Name"
                        value="{{ old('name') }}"
-                       class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white/70 focus:ring-2 focus:ring-primary outline-none">
+                       class="w-full px-4 py-3 rounded-md border border-borderc bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary outline-none transition">
 
                 <input type="email"
                        name="email"
                        placeholder="Email Address"
                        value="{{ old('email') }}"
-                       class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white/70 focus:ring-2 focus:ring-primary outline-none">
+                       class="w-full px-4 py-3 rounded-md border border-borderc bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary outline-none transition">
 
                 <input type="password"
                        name="password"
                        placeholder="Password"
-                       class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white/70 focus:ring-2 focus:ring-primary outline-none">
+                       class="w-full px-4 py-3 rounded-md border border-borderc bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary outline-none transition">
 
                 <input type="password"
                        name="password_confirmation"
                        placeholder="Confirm Password"
-                       class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white/70 focus:ring-2 focus:ring-primary outline-none">
+                       class="w-full px-4 py-3 rounded-md border border-borderc bg-gray-50 focus:bg-white focus:ring-2 focus:ring-primary outline-none transition">
 
                 <button type="submit"
-                        class="w-full bg-primary hover:bg-dark text-white py-3 rounded-xl transition shadow-lg">
+                        class="w-full bg-primary hover:bg-dark text-white font-medium py-3 rounded-md transition shadow-dark">
                     Send OTP
                 </button>
             </form>
 
-            <p class="text-center mt-6 text-sm text-gray-600">
+            <p class="text-center mt-6 text-sm text-gray-600 font-medium">
                 Already have an account?
                 <a href="/login" class="text-primary font-semibold hover:underline">
                     Login

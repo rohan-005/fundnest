@@ -2,84 +2,65 @@
 
 @section('content')
 
-<!-- NAVBAR -->
-<nav class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-4 flex justify-between items-center mb-4">
-    <a href="/" class="text-2xl font-bold flex items-center gap-2">
-        <span class="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-sm">🎓</span>
-        FundNest
-    </a>
-
-    <div class="flex items-center gap-6 text-sm font-medium">
-        @auth
-            <a href="/dashboard" class="text-dark hover:text-primary transition">Go to Dashboard</a>
-        @else
-            <a href="/admin/login" class="text-muted hover:text-dark transition">Admin Login</a>
-            <a href="/login" class="text-dark hover:text-primary transition">Student Login</a>
-            <a href="/register" class="bg-primary hover:bg-dark text-white px-5 py-2 rounded-xl transition shadow-sm">Register</a>
-        @endauth
-    </div>
-</nav>
-
 <!-- HERO SECTION -->
-<section class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 pt-7 pb-20">
+<section class="max-w-7xl mx-auto  ">
 
     <div class="grid lg:grid-cols-2 gap-16 items-center">
 
         <!-- LEFT CONTENT -->
         <div>
 
-            <span class="inline-block bg-white/60 backdrop-blur-md border border-white/50 px-4 py-2 rounded-full text-sm shadow-sm">
-                Scholarship & Funding Platform
+            <span class="inline-block bg-white border border-borderc px-4 py-2 rounded-sm text-sm font-semibold tracking-wide text-primary shadow-sm mb-6">
+                SCHOLARSHIP & FUNDING PLATFORM
             </span>
 
-            <h1 class="text-5xl md:text-6xl font-bold leading-tight mt-8">
+            <h1 class="text-5xl md:text-6xl font-bold leading-tight text-dark">
                 Find opportunities
                 <br>
                 and shape your
                 <span class="text-primary">future.</span>
             </h1>
 
-            <p class="mt-6 text-lg text-gray-700 leading-relaxed max-w-xl">
-                FundNest helps students discover scholarships,
-                manage applications, track approvals, and stay
-                organized through one modern platform.
+            <p class="mt-6 text-lg text-gray-600 leading-relaxed max-w-xl">
+                FundNest provides a centralized platform for students to discover scholarships,
+                manage applications, track approvals, and organize their educational funding journey.
             </p>
 
             <!-- ACTION BUTTONS -->
             <div class="mt-10 flex flex-wrap gap-4">
 
                 <a href="/register"
-                   class="bg-primary hover:bg-dark text-white px-7 py-3 rounded-2xl shadow-lg transition">
-                    Get Started
+                   class="bg-primary hover:bg-dark text-white font-medium px-8 py-3.5 rounded-md shadow-dark transition">
+                    Create Account
                 </a>
 
                 <a href="/login"
-                   class="bg-white/60 backdrop-blur-md border border-white/40 hover:bg-white px-7 py-3 rounded-2xl transition">
-                    Login
+                   class="bg-white border border-borderc hover:bg-gray-50 text-dark font-medium px-8 py-3.5 rounded-md shadow-sm transition">
+                    Sign In
                 </a>
 
             </div>
 
             <!-- STATS -->
-            <div class="flex flex-wrap gap-10 mt-14">
+            <div class="flex flex-wrap gap-12 mt-16 pt-8 border-t border-borderc">
 
                 <div>
-                    <h3 class="text-3xl font-bold">120+</h3>
-                    <p class="text-gray-600 text-sm mt-1">
+                    <h3 class="text-3xl font-bold text-dark">120+</h3>
+                    <p class="text-gray-500 text-sm font-medium mt-1 uppercase tracking-wider">
                         Scholarships
                     </p>
                 </div>
 
                 <div>
-                    <h3 class="text-3xl font-bold">5k+</h3>
-                    <p class="text-gray-600 text-sm mt-1">
+                    <h3 class="text-3xl font-bold text-dark">5k+</h3>
+                    <p class="text-gray-500 text-sm font-medium mt-1 uppercase tracking-wider">
                         Students
                     </p>
                 </div>
 
                 <div>
-                    <h3 class="text-3xl font-bold">98%</h3>
-                    <p class="text-gray-600 text-sm mt-1">
+                    <h3 class="text-3xl font-bold text-dark">98%</h3>
+                    <p class="text-gray-500 text-sm font-medium mt-1 uppercase tracking-wider">
                         Satisfaction
                     </p>
                 </div>
@@ -89,110 +70,90 @@
         </div>
 
         <!-- RIGHT DASHBOARD PREVIEW -->
-        <div class="relative">
+        <div class="relative hidden lg:block">
 
             <!-- MAIN CARD -->
-            <div class="bg-white/70 backdrop-blur-xl border border-white/50 shadow-2xl rounded-3xl p-8">
+            <div class="bg-white border border-borderc shadow-dark rounded-md p-8 relative z-10">
 
-                <div class="flex justify-between items-center">
+                <div class="flex justify-between items-center border-b border-borderc pb-4 mb-6">
 
                     <div>
-                        <p class="text-gray-500 text-sm">
+                        <p class="text-gray-400 text-xs font-semibold uppercase tracking-wider">
                             Dashboard Overview
                         </p>
-
-                        <h2 class="text-3xl font-bold mt-1">
-                            Your Activity
+                        <h2 class="text-2xl font-bold mt-1 text-dark">
+                            Recent Activity
                         </h2>
                     </div>
 
-                    <div class="bg-primary text-white px-4 py-2 rounded-xl text-sm">
-                        Active
+                    <div class="bg-soft text-primary px-3 py-1 rounded-sm text-xs font-bold border border-primary/20">
+                        ACTIVE
                     </div>
 
                 </div>
 
                 <!-- STATS -->
-                <div class="grid grid-cols-3 gap-4 mt-8">
+                <div class="grid grid-cols-3 gap-4 mb-8">
 
-                    <div class="bg-white rounded-2xl p-4 shadow-sm">
-                        <p class="text-gray-500 text-sm">Applied</p>
-                        <h3 class="text-2xl font-bold mt-2">12</h3>
+                    <div class="bg-gray-50 rounded-sm p-4 border border-borderc">
+                        <p class="text-gray-500 text-xs font-bold uppercase tracking-wider">Applied</p>
+                        <h3 class="text-2xl font-bold mt-2 text-dark">12</h3>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-4 shadow-sm">
-                        <p class="text-gray-500 text-sm">Approved</p>
-                        <h3 class="text-2xl font-bold mt-2">5</h3>
+                    <div class="bg-gray-50 rounded-sm p-4 border border-borderc">
+                        <p class="text-gray-500 text-xs font-bold uppercase tracking-wider">Approved</p>
+                        <h3 class="text-2xl font-bold mt-2 text-dark">5</h3>
                     </div>
 
-                    <div class="bg-white rounded-2xl p-4 shadow-sm">
-                        <p class="text-gray-500 text-sm">Pending</p>
-                        <h3 class="text-2xl font-bold mt-2">7</h3>
+                    <div class="bg-gray-50 rounded-sm p-4 border border-borderc">
+                        <p class="text-gray-500 text-xs font-bold uppercase tracking-wider">Pending</p>
+                        <h3 class="text-2xl font-bold mt-2 text-dark">7</h3>
                     </div>
 
                 </div>
 
-                <!-- RECENT ACTIVITY -->
-                <div class="mt-8">
+                <!-- RECENT ACTIVITY LIST -->
+                <div>
+                    <div class="space-y-3">
 
-                    <h4 class="font-semibold mb-4">
-                        Recent Activity
-                    </h4>
-
-                    <div class="space-y-4">
-
-                        <div class="flex items-center justify-between bg-white rounded-2xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between bg-white border border-borderc rounded-sm p-4 shadow-sm">
                             <div>
-                                <p class="font-medium">
+                                <p class="font-bold text-dark text-sm">
                                     STEM Excellence Scholarship
                                 </p>
-                                <p class="text-sm text-gray-500">
+                                <p class="text-xs text-gray-500 mt-1 font-medium">
                                     Application Submitted
                                 </p>
                             </div>
 
-                            <span class="text-primary text-sm font-semibold">
-                                Pending
+                            <span class="text-warning text-xs font-bold bg-warning/10 px-2 py-1 rounded-sm">
+                                PENDING
                             </span>
                         </div>
 
-                        <div class="flex items-center justify-between bg-white rounded-2xl p-4 shadow-sm">
+                        <div class="flex items-center justify-between bg-white border border-borderc rounded-sm p-4 shadow-sm">
                             <div>
-                                <p class="font-medium">
+                                <p class="font-bold text-dark text-sm">
                                     Future Leaders Grant
                                 </p>
-                                <p class="text-sm text-gray-500">
+                                <p class="text-xs text-gray-500 mt-1 font-medium">
                                     Application Approved
                                 </p>
                             </div>
 
-                            <span class="text-green-600 text-sm font-semibold">
-                                Approved
+                            <span class="text-success text-xs font-bold bg-success/10 px-2 py-1 rounded-sm">
+                                APPROVED
                             </span>
                         </div>
 
                     </div>
-
                 </div>
 
             </div>
 
-            <!-- FLOATING SMALL CARD -->
-            <div class="absolute -bottom-8 -left-8 bg-white rounded-2xl shadow-xl p-5 hidden lg:block">
-
-                <p class="text-sm text-gray-500">
-                    Success Rate
-                </p>
-
-                <h3 class="text-3xl font-bold mt-1">
-                    87%
-                </h3>
-
-                <p class="text-primary text-sm mt-1">
-                    +12% this month
-                </p>
-
-            </div>
+            <!-- DECORATIVE BACKGROUND -->
+            <div class="absolute -top-6 -right-6 w-full h-full border-2 border-primary/20 rounded-md -z-10"></div>
+            <div class="absolute -bottom-6 -left-6 w-full h-full bg-soft rounded-md -z-20"></div>
 
         </div>
 
@@ -200,29 +161,14 @@
 
 </section>
 
-<!-- FEATURES -->
-
-
 <!-- CTA -->
-<section >
-
-    <div class="w-full mx-auto bg-dark  overflow-hidden relative">
-
-        <!-- BACKGROUND EFFECT -->
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute w-50 h-80 bg-primary rounded-full blur-3xl top-[-100px] right-[-100px]"></div>
-        </div>
-
-        <div class="relative z-10 py-10 px-8 text-center text-white">
-
-            <h2 class="text-3xl md:text-4xl font-bold leading-tight">
-                Start your scholarship journey today
-            </h2>
-
-            
-
-        </div>
-
+<section class="mt-10 bg-sidebar py-10 px-8 text-center rounded-md shadow-dark relative overflow-hidden">
+    
+    <div class="relative z-10 text-white max-w-2xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold leading-tight ">
+            Start your funding journey today
+        </h2>
+        
     </div>
 
 </section>
