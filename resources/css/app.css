@@ -2,4 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
 
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/*
+|--------------------------------------------------------------------------
+| GLOBAL UI
+|--------------------------------------------------------------------------
+*/
+
+.card {
+    @apply bg-card rounded-3xl shadow-soft border border-borderc;
+}
+
+.input {
+    @apply w-full border border-borderc rounded-2xl p-4
+    focus:ring-2 focus:ring-primary
+    focus:outline-none;
+}
+
+.btn-primary {
+    @apply bg-primary hover:bg-dark
+    text-white
+    px-6 py-3
+    rounded-2xl
+    transition;
+}
+
+.btn-danger {
+    @apply bg-danger hover:bg-red-700
+    text-white
+    px-5 py-2
+    rounded-xl
+    transition;
+}
+
+.page-title {
+    @apply text-4xl font-bold text-dark;
+}
+
+.page-subtitle {
+    @apply text-muted mt-2;
+}
+
+/*
+|--------------------------------------------------------------------------
+| SCROLLBAR
+|--------------------------------------------------------------------------
+*/
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1F7A67;
+    border-radius: 20px;
+}

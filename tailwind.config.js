@@ -4,18 +4,39 @@ export default {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
   ],
+
   theme: {
     extend: {
+
       colors: {
-        dark: "#184F45",       // darker version
-        primary: "#2FA084",
-        accent: "#6FCF97",
-        light: "#E6E6E6",      // slightly muted
-        soft: "#ccefdb",       // background tone like your image
-        bolb:"#56a666",
+
+        dark: "#0F3D35",
+        primary: "#1F7A67",
+        accent: "#39B68D",
+
+        soft: "#EAF7F2",
+        muted: "#A7B8B3",
+
+        card: "#FFFFFF",
+
+        sidebar: "#123F37",
+
+        borderc: "#D7E7E1",
+
+        success: "#1DB954",
+        warning: "#F59E0B",
+        danger: "#EF4444",
+      },
+
+      boxShadow: {
+        soft: "0 10px 35px rgba(0,0,0,0.08)",
+      },
+
+      borderRadius: {
+        xl2: "1.3rem",
       }
     },
   },
+
   plugins: [],
 }
-

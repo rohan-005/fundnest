@@ -6,5 +6,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Application extends Model
 {
-    //
+    protected $fillable = [
+        'user_id',
+        'scholarship_id',
+        'message',
+        'status',
+        'admin_remark',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function scholarship()
+    {
+        return $this->belongsTo(Scholarship::class);
+    }
+
+    public function documents()
+    {
+        return $this->hasMany(Document::class);
+    }
 }

@@ -2,6 +2,24 @@
 
 @section('content')
 
+<!-- NAVBAR -->
+<nav class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-4 flex justify-between items-center mb-4">
+    <a href="/" class="text-2xl font-bold flex items-center gap-2">
+        <span class="w-8 h-8 rounded-lg bg-accent flex items-center justify-center text-sm">🎓</span>
+        FundNest
+    </a>
+
+    <div class="flex items-center gap-6 text-sm font-medium">
+        @auth
+            <a href="/dashboard" class="text-dark hover:text-primary transition">Go to Dashboard</a>
+        @else
+            <a href="/admin/login" class="text-muted hover:text-dark transition">Admin Login</a>
+            <a href="/login" class="text-dark hover:text-primary transition">Student Login</a>
+            <a href="/register" class="bg-primary hover:bg-dark text-white px-5 py-2 rounded-xl transition shadow-sm">Register</a>
+        @endauth
+    </div>
+</nav>
+
 <!-- HERO SECTION -->
 <section class="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 pt-7 pb-20">
 

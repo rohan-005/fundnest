@@ -231,13 +231,38 @@ class AuthController extends Controller
 
     public function adminLogin(Request $request)
     {
-        if (
-            $request->email === env('ADMIN_EMAIL') &&
-            $request->password === env('ADMIN_PASSWORD')
-        ) {
-            session(['is_admin' => true]);
+        $adminEmail = env('ADMIN_EMAIL');
+        $adminPassword = env('ADMIN_PASSWORD');
 
-            return redirect('/admin/dashboard');
+        // Allow login via .env credentials
+        if ($adminEmail && $adminPassword && $request->email === $adminEmail && $request->password === $adminPassword) {
+            $user = \App\Models\User::firstOrCreate(
+                ['email' => $adminEmail],
+                [
+                    'name'     => 'Super Admin',
+                    'password' => \Illuminate\Support\Facades\Hash::make($adminPassword),
+                    'role'     => 'super_admin'
+                ]
+            );
+
+            // Ensure they always have super_admin role
+            if ($user->role !== 'super_admin') {
+                $user->update(['role' => 'super_admin']);
+            }
+
+            Auth::login($user);
+            return redirect('/dashboard');
+        }
+
+        // Allow login for other database admins
+        if (Auth::attempt($request->only('email', 'password'))) {
+            if (Auth::user()->isAdmin()) {
+                return redirect('/dashboard');
+            }
+            
+            // Log them out if they are not an admin
+            Auth::logout();
+            return back()->with('error', 'You do not have admin access.');
         }
 
         return back()->with('error', 'Invalid admin credentials');
