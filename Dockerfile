@@ -1,4 +1,4 @@
-FROM php:8.2-cli
+FROM php:8.3-cli
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -16,23 +16,24 @@ RUN docker-php-ext-install pdo pdo_mysql zip
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Set app directory
+# Set working directory
 WORKDIR /app
 
-# Copy all files
+# Copy project files
 COPY . .
 
-# Install PHP dependencies
+# Install Composer dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Install Node dependencies
+# Install frontend dependencies
 RUN npm install
 
 # Build Vite assets
 RUN npm run build
 
-# Laravel cache optimization
+# Laravel optimization
 RUN php artisan config:clear
+RUN php artisan cache:clear
 RUN php artisan route:clear
 RUN php artisan view:clear
 
