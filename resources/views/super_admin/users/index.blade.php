@@ -9,9 +9,9 @@
 
 {{-- SEARCH/FILTER --}}
 <form method="GET" class="card p-4 mt-6 flex gap-3">
-    <input type="text" name="search" value="{{ request('search') }}"
+    <input type="text" name="search" class="w-[300%]" value="{{ request('search') }}"
            placeholder="Search by name or email…" class="input text-sm py-2.5 flex-1">
-    <select name="role" class="input text-sm py-2.5 w-40">
+    <select name="role" class="input text-sm py-2.5">
         <option value="">All Roles</option>
         @foreach(['student','admin','reviewer','editor','super_admin'] as $r)
             <option value="{{ $r }}" {{ request('role') === $r ? 'selected' : '' }}>{{ ucfirst(str_replace('_',' ',$r)) }}</option>
